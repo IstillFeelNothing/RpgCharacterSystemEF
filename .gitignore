@@ -1,0 +1,52 @@
+# Build results
+bin/
+obj/
+
+# Visual Studio files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# JetBrains Rider
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# Temporary files
+*.log
+*.tmp
+*.temp
+*.pidb
+
+# Backup & system
+[Tt]humbs.db
+[Dd]esktop.ini
+
+# Test results
+TestResult*/
+*.trx
+*.coverage
+*.coveragexml
+
+# NuGet packages
+*.nupkg
+*.snupkg
+packages/
+*.nuspec
+project.lock.json
+
+# Dotnet-specific
+project.fragment.lock.json
+artifacts/
+
+# Ignore all project files if desired
+# (You asked to ignore .csproj, so include this)
+*.csproj
+*.sln
+
+# Optional: ignore published output
+publish/
