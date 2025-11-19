@@ -22,10 +22,10 @@ namespace RPG_Character_System.Characters
         [Range(0, 100)]
         public int Level { get; set; }
         public int? EquippedWeaponId { get; set; }
-        public Weapon? EquippedWeapon {  get; set; }
+        public virtual Weapon? EquippedWeapon {  get; set; }
         public int Experience { get; set; } = 1;
         public CharacterClassType ClassType { get; protected set; }
-        public List<Quest> Quests { get; set; }
+        public virtual List<Quest> Quests { get; set; }
 
         public event EventHandler OnCharacterDied;
         public event LevelUpHandler OnLevelUp;

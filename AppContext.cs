@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace RPG_Character_System
 {
-    internal class AppContext : DbContext
+    public class AppContext : DbContext
     {
         public DbSet<Quest> Quests { get; set; }
         public DbSet<Character> Characters { get; set; }
@@ -19,6 +19,7 @@ namespace RPG_Character_System
         public DbSet<Warrior> Warriors { get; set; }
         public DbSet<Item> Items { get; set; }
         public DbSet<Weapon> Weapons { get; set; }
+        public DbSet<CharacterDto> CharacterDTO { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -29,7 +30,9 @@ namespace RPG_Character_System
 
             var connectionString = config.GetConnectionString("RpgDatabase");
 
-            optionsBuilder.UseSqlServer(connectionString);
+            optionsBuilder
+                .UseLazyLoadingProxies()
+                .UseSqlServer(connectionString);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -40,6 +43,8 @@ namespace RPG_Character_System
 
             modelBuilder.Entity<Item>().ToTable("Items");
             modelBuilder.Entity<Weapon>().ToTable("Weapons");
+
+            modelBuilder.Entity<CharacterDto>().HasNoKey();
 
             modelBuilder.Entity<Character>()
                .HasOne(c => c.EquippedWeapon)

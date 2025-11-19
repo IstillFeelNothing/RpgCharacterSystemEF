@@ -9,11 +9,18 @@ namespace RPG_Character_System
     {
         static void Main(string[] args)
         {
-            CreateData();
-            ReadCharacters();
-            UpdateCharacter("Thorin");
-            DeleteWeapon("Steel Sword");
-            ReadWeapons();
+            //LinqMethods.JoinExample();
+            //LinqMethods.GroupByExample();
+            //LinqMethods.DistinctExample();
+            //LinqMethods.SetOperationsExample();
+
+            //LinqMethods.EagerLoadingExample();
+            //LinqMethods.ExplicitLoadingExample();
+            //LinqMethods.LazyLoadingExample();
+
+            //LinqMethods.NoTrackingExample();
+            //LinqMethods.StoredProcedureExample();
+            //LinqMethods.SqlFunctionExample();
         }
 
         static void CreateData()
