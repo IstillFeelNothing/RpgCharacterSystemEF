@@ -2,25 +2,22 @@
 using RPG_Character_System.Inventory;
 using RPG_Character_System.Items;
 using RPG_Character_System.Systems;
+using RPG_Character_System.Utilities;
 
 namespace RPG_Character_System
 {
     public class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            //LinqMethods.JoinExample();
-            //LinqMethods.GroupByExample();
-            //LinqMethods.DistinctExample();
-            //LinqMethods.SetOperationsExample();
+            //Console.WriteLine("Starting Thread-based generation...");
+            //ConcurrencyGenerators.GenerateWithThreads(threadsCount: 4, itemsPerThread: 10);
 
-            //LinqMethods.EagerLoadingExample();
-            //LinqMethods.ExplicitLoadingExample();
-            //LinqMethods.LazyLoadingExample();
+            //Console.WriteLine("Starting Task-based generation...");
+            //await ConcurrencyGenerators.GenerateWithTasksAsync(tasksCount: 8, itemsPerTask: 10);
 
-            //LinqMethods.NoTrackingExample();
-            //LinqMethods.StoredProcedureExample();
-            //LinqMethods.SqlFunctionExample();
+            Console.WriteLine("Concurrent reading...");
+            await ConcurrencyGenerators.ConcurrentReadAsync(parallelReaders: 4, pageSize: 20);
         }
 
         static void CreateData()
